@@ -3,8 +3,9 @@ name: Build APK
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
+    tags:
+      - 'v*'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -43,9 +44,35 @@ jobs:
         cd android
         ./gradlew assembleDebug
     
-    - name: Upload APK
+    - name: Get version info
+      id: version
+      run: |
+        echo "date=$(date +'%Y%m%d-%H%M')" >> $GITHUB_OUTPUT
+        echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+    
+    - name: Rename APK
+      run: |
+        mv android/app/build/outputs/apk/debug/app-debug.apk \
+           android/app/build/outputs/apk/debug/pokemon-battle-${{ steps.version.outputs.date }}.apk
+    
+    - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: pokemon-battle-debug
-        path: android/app/build/outputs/apk/debug/app-debug.apk
-        retention-days: 30
+        path: android/app/build/outputs/apk/debug/*.apk
+        retention-days: 7
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: build-${{ steps.version.outputs.date }}
+        name: Build ${{ steps.version.outputs.date }}
+        body: |
+          Automated build from commit ${{ steps.version.outputs.sha_short }}
+          
+          **Download:** pokemon-battle-${{ steps.version.outputs.date }}.apk
+        files: android/app/build/outputs/apk/debug/*.apk
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
