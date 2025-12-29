@@ -1,14 +1,14 @@
 @font-face {
   font-family: "Pokemon";
-  src: url("../public/fonts/pokemon-normal.woff2") format("woff2"),
-    url("../public/fonts/pokemon-normal.woff") format("woff");
+  src: url("./fonts/pokemon-normal.woff2") format("woff2"),
+    url("./fonts/pokemon-normal.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Pokemon";
-  src: url("../public/fonts/pokemon-italic.woff2") format("woff2"),
-    url("../public/fonts/pokemon-italic.woff") format("woff");
+  src: url("./fonts/pokemon-italic.woff2") format("woff2"),
+    url("./fonts/pokemon-italic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
 }
@@ -86,7 +86,7 @@ button.active {
 }
 .button:hover:before {
   position: absolute;
-  background-image: url("../public/img/marker.svg");
+  background-image: url("./img/marker.svg");
   background-repeat: no-repeat;
   left: -1em;
   top: 0.1em;
@@ -185,7 +185,7 @@ span span,
 }
 .foe .stats {
   height: 3em;
-  background-image: url("../public/img/blue_line.svg");
+  background-image: url("./img/blue_line.svg");
 }
 .foe .name {
   margin-left: -0.3em;
@@ -207,7 +207,7 @@ span span,
   right: 1.1em;
 }
 .player .stats {
-  background-image: url("../public/img/red_line.svg");
+  background-image: url("./img/red_line.svg");
 }
 .player .name {
   margin-left: 1em;
@@ -224,8 +224,8 @@ span span,
 }
 .windows .window {
   position: absolute;
-  -o-border-image: url("../public/img/frame.svg") 45% stretch;
-  border-image: url("../public/img/frame.svg") 45% stretch;
+  -o-border-image: url("./img/frame.svg") 45% stretch;
+  border-image: url("./img/frame.svg") 45% stretch;
   border-style: solid;
   border-width: 0.7em;
   background: #bbac58;
