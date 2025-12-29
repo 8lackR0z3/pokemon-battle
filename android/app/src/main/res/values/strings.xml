@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Pokemon Battle</string>
+    <string name="title_activity_main">Pokemon Battle</string>
+    <string name="package_name">com.blackrose.pokemonbattle</string>
+    <string name="custom_url_scheme">com.blackrose.pokemonbattle</string>
+</resources>
