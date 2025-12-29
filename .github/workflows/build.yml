@@ -24,8 +24,11 @@ jobs:
     - name: Build web app
       run: npm run build
     
-    - name: Sync Capacitor
-      run: npx cap sync android
+    - name: Copy web assets to Android
+      run: |
+        mkdir -p android/app/src/main/assets/public
+        cp -r build/* android/app/src/main/assets/public/
+        echo '{"appId":"com.blackrose.pokemonbattle","appName":"Pokemon Battle","webDir":"build"}' > android/app/src/main/assets/capacitor.config.json
     
     - name: Set up JDK 17
       uses: actions/setup-java@v4
