@@ -398,35 +398,34 @@ const typer = () => {
 // Click elements
 let potionCount = 1;
 $(".potionCount").text(potionCount);
-$(".button.item").on("click", () => {
-  $(".window.item").show();
-  $(".window.menu").hide();
+$(".button.item").on("click touchend", () => {
+  $(".window.menu").hide(); $(".window.item").css("display", "block");
 });
-$(".button.potion").on("click", () => {
+$(".button.potion").on("click touchend", () => {
   potion("normal");
 });
-$(".button.fight").on("click", () => {
-  $(".window.fight").show();
+$(".button.fight").on("click touchend", () => {
+  $(".window.menu").hide(); $(".window.fight").css("display", "block");
 });
 $(".button.growl").on("click", () => {
   growl();
 });
-$(".button#move0").on("click", () => {
+$(".button#move0").on("click touchend", () => {
   attack("tackle");
 });
-$(".button#move1").on("click", () => {
+$(".button#move1").on("click touchend", () => {
   attack("tail whip");
 });
-$(".button#move2").on("click", () => {
+$(".button#move2").on("click touchend", () => {
   attack("-");
 });
-$(".button.back").on("click", () => {
+$(".button.back").on("click touchend", () => {
   reset();
 });
-$(".button.pkmn").on("click", () => {
-  $(".window.pkmn").show();
+$(".button.pkmn").on("click touchend", () => {
+  $(".window.menu").hide(); $(".window.pkmn").css("display", "block");
 });
-$(".button.run").on("click", () => {
+$(".button.run").on("click touchend", () => {
   hider();
   $(".text1").text("No! There's no");
   $(".text2").text("running from a");
