@@ -40,7 +40,7 @@ const reset = () => {
   $(".window.item").hide();
   $(".window.pkmn").hide();
   $(".window.fight").hide();
-  $(".window.menu").show();
+  $(".window.menu").css('display', 'grid');
 };
 
 // Health bar width calculation
@@ -54,13 +54,15 @@ const typer = () => {
     const text = $(this).text();
     $(this).html("");
     for (let i = 0; i < text.length; i++) {
-      // Use &nbsp; for spaces to preserve them
-      const char = text[i] === " " ? "&nbsp;" : text[i];
-      $(this).append("<span>" + char + "</span>");
+      $(this).append("<span>" + text[i] + "</span>");
     }
   });
   const line = $(".window.texts");
-  line.find("span").hide();
+  line.find("span").hide().each(function () {
+    if (!$.trim(this.innerHTML)) {
+      $(this).remove();
+    }
+  });
   line.show().find("span").each(function (i) {
     $(this).delay(40 * i).fadeIn(0);
   });
