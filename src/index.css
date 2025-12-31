@@ -254,14 +254,37 @@ span span,
   right: 0.1em;
   height: 2.7em;
   width: 7.4em;
-  padding: 0.5em 0 0 0.8em;
+  padding: 0.3em 0.4em;
+  box-sizing: border-box;
+}
+/* Force grid layout when menu is shown */
+.windows .window.menu.show-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.1em 0.2em;
+}
+.windows .window.menu .button {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  min-width: 3em;
+}
+.windows .window.menu .button.pkmn {
+  letter-spacing: -0.1em;
 }
 .windows .window.menu sup,
 .windows .window.menu sub {
-  display: inline-block;
-  margin-right: -1.3em;
+  display: inline;
   font-size: 0.7em;
-  margin-left: -0.4em;
+  vertical-align: baseline;
+  position: relative;
+}
+.windows .window.menu sup {
+  top: -0.3em;
+}
+.windows .window.menu sub {
+  top: 0.2em;
 }
 .windows .window.fight {
   display: none;
