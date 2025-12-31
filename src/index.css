@@ -252,27 +252,27 @@ span span,
   display: none;
   bottom: 0.1em;
   right: 0.1em;
-  height: 2.7em;
-  width: 7.4em;
-  padding: 0.3em 0.4em;
+  height: 3.2em;
+  width: 8em;
+  padding: 0.4em 0.5em;
   box-sizing: border-box;
-  /* Grid layout for 2x2 buttons */
+}
+/* Override jQuery's inline display with grid */
+.windows .window.menu[style] {
+  display: grid !important;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 0.1em 0.3em;
-}
-/* Override jQuery's inline display:block with grid */
-.windows .window.menu[style*="block"] {
-  display: grid !important;
+  gap: 0.2em 0.5em;
 }
 .windows .window.menu .button {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   white-space: nowrap;
-  min-width: 3em;
+  font-size: 0.75em;
 }
 .windows .window.menu .button.pkmn {
-  letter-spacing: -0.1em;
+  letter-spacing: -0.05em;
 }
 .windows .window.menu sup,
 .windows .window.menu sub {
