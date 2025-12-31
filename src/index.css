@@ -256,13 +256,14 @@ span span,
   width: 7.4em;
   padding: 0.3em 0.4em;
   box-sizing: border-box;
-}
-/* Force grid layout when menu is shown */
-.windows .window.menu.show-grid {
-  display: grid !important;
+  /* Grid layout for 2x2 buttons */
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 0.1em 0.2em;
+  gap: 0.1em 0.3em;
+}
+/* Override jQuery's inline display:block with grid */
+.windows .window.menu[style*="block"] {
+  display: grid !important;
 }
 .windows .window.menu .button {
   display: flex;
