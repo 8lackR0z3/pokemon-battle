@@ -54,15 +54,13 @@ const typer = () => {
     const text = $(this).text();
     $(this).html("");
     for (let i = 0; i < text.length; i++) {
-      $(this).append("<span>" + text[i] + "</span>");
+      // Use &nbsp; for spaces to preserve them
+      const char = text[i] === " " ? "&nbsp;" : text[i];
+      $(this).append("<span>" + char + "</span>");
     }
   });
   const line = $(".window.texts");
-  line.find("span").hide().each(function () {
-    if (!$.trim(this.innerHTML)) {
-      $(this).remove();
-    }
-  });
+  line.find("span").hide();
   line.show().find("span").each(function (i) {
     $(this).delay(40 * i).fadeIn(0);
   });
