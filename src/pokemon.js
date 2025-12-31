@@ -27,7 +27,7 @@ let potionCount = 1;
 
 // Hide all menus except dialog
 const hider = () => {
-  $(".window.menu").hide();
+  $(".window.menu").removeClass("show-grid");
   $(".window.item").hide();
   $(".window.pkmn").hide();
   $(".window.fight").hide();
@@ -40,7 +40,7 @@ const reset = () => {
   $(".window.item").hide();
   $(".window.pkmn").hide();
   $(".window.fight").hide();
-  $(".window.menu").show();
+  $(".window.menu").addClass("show-grid");
 };
 
 // Health bar width calculation
@@ -153,7 +153,7 @@ const attack = (move) => {
 // Enemy turn / check win condition
 const attackEnd = () => {
   if (hpFoe <= 0) {
-    $(".window.menu").hide();
+    $(".window.menu").removeClass("show-grid");
     $(".foe .hp-bar-active").css("width", "0%");
     window.setTimeout(() => {
       $(".foe .images").delay(500).animate({ bottom: "-35em" }, 1000);
@@ -205,7 +205,7 @@ const attackEnd = () => {
                   $(".player .hp").text("0");
                   $(".player .hp-bar-active").css("width", "0%");
                   window.setTimeout(() => {
-                    $(".window.menu").hide();
+                    $(".window.menu").removeClass("show-grid");
                     $(".player .images").delay(500).animate({ bottom: "-35em" }, 1000);
                     $(".text1").text(playerPokemon.name.toUpperCase() + " fainted...");
                     $(".text2").text("");
@@ -251,7 +251,7 @@ const playPokemon = () => {
   // Setup click handlers
   $(".button.item").off("click").on("click", () => {
     $(".window.item").show();
-    $(".window.menu").hide();
+    $(".window.menu").removeClass("show-grid");
   });
   
   $(".button.potion").off("click").on("click", () => {
@@ -260,7 +260,7 @@ const playPokemon = () => {
   
   $(".button.fight").off("click").on("click", () => {
     $(".window.fight").show();
-    $(".window.menu").hide();
+    $(".window.menu").removeClass("show-grid");
   });
   
   $(".button#move0").off("click").on("click", () => {
@@ -281,7 +281,7 @@ const playPokemon = () => {
   
   $(".button.pkmn").off("click").on("click", () => {
     $(".window.pkmn").show();
-    $(".window.menu").hide();
+    $(".window.menu").removeClass("show-grid");
   });
   
   $(".button.run").off("click").on("click", () => {
