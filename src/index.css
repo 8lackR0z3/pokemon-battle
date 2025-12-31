@@ -259,6 +259,7 @@ span span,
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0.1em 0.3em;
+  place-items: center start;  /* vertically center, horizontally left-align */
 }
 .windows .window.menu .button {
   display: flex;
